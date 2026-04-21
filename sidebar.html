@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VocabTracker</title>
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+  <body>
+    <!-- ── Header ─────────────────────────────────────────────────── -->
+    <header class="header">
+      <div class="header-logo" aria-hidden="true">📚</div>
+      <div class="header-text">
+        <div class="header-title">VocabTracker</div>
+        <div class="header-sub">Your personal word library</div>
+      </div>
+      <div class="word-count-badge" id="totalCountBadge">0</div>
+    </header>
+
+    <!-- ── Add / Edit Word Form ───────────────────────────────────── -->
+    <section class="form-section" id="formSection">
+      <div class="form-title" id="formTitle">Add New Word</div>
+
+      <div
+        class="form-fields"
+        id="formFields"
+        role="form"
+        aria-label="Add new word"
+      >
+        <div class="field-group">
+          <label class="field-label" for="inputWord">Word</label>
+          <input
+            class="field-input"
+            id="inputWord"
+            type="text"
+            placeholder="e.g. serendipity"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="120"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="inputMeaning">Meaning</label>
+          <input
+            class="field-input"
+            id="inputMeaning"
+            type="text"
+            placeholder="e.g. a pleasant surprise or happy accident"
+            autocomplete="off"
+            maxlength="300"
+          />
+        </div>
+
+        <div class="form-actions">
+          <button class="cancel-btn" id="cancelBtn" type="button" hidden>
+            Cancel
+          </button>
+          <button class="save-btn" id="saveBtn" type="button">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+              />
+              <polyline points="17 21 17 13 7 13 7 21" />
+              <polyline points="7 3 7 8 15 8" />
+            </svg>
+            Save Word
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Search ─────────────────────────────────────────────────── -->
+    <section class="search-section" aria-label="Search saved words">
+      <span class="search-icon" aria-hidden="true">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </span>
+      <input
+        class="search-input"
+        id="searchInput"
+        type="search"
+        placeholder="Search words…"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search saved words"
+      />
+    </section>
+
+    <!-- ── List Header ────────────────────────────────────────────── -->
+    <div class="list-header" aria-live="polite" id="listHeader">
+      <span class="list-title">Saved Words</span>
+      <span class="list-meta" id="listMeta"></span>
+    </div>
+
+    <!-- ── Words List ─────────────────────────────────────────────── -->
+    <main class="words-list" id="wordsList" aria-label="Saved vocabulary words">
+      <!-- Cards injected by sidebar.js -->
+    </main>
+
+    <!-- ── Toast ──────────────────────────────────────────────────── -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="sidebar.js"></script>
+  </body>
+</html>
