@@ -353,30 +353,30 @@ const UPDATE_BTN_HTML = `
 
 function startEdit(entry) {
   editingId = entry.id;
-  document.getElementById("inputWord").value       = entry.word;
-  document.getElementById("inputMeaning").value    = entry.meaning;
+  document.getElementById("inputWord").value = entry.word;
+  document.getElementById("inputMeaning").value = entry.meaning;
   document.getElementById("formTitle").textContent = "Edit Word";
-  document.getElementById("saveBtn").innerHTML     = UPDATE_BTN_HTML;
-  document.getElementById("cancelBtn").hidden      = false;
+  document.getElementById("saveBtn").innerHTML = UPDATE_BTN_HTML;
+  document.getElementById("cancelBtn").hidden = false;
   document.getElementById("inputWord").focus();
   document.getElementById("formSection").scrollIntoView({ behavior: "smooth" });
 }
 
 function cancelEdit() {
   editingId = null;
-  document.getElementById("inputWord").value       = "";
-  document.getElementById("inputMeaning").value    = "";
+  document.getElementById("inputWord").value = "";
+  document.getElementById("inputMeaning").value = "";
   document.getElementById("formTitle").textContent = "Add New Word";
-  document.getElementById("saveBtn").innerHTML     = SAVE_BTN_HTML;
-  document.getElementById("cancelBtn").hidden      = true;
+  document.getElementById("saveBtn").innerHTML = SAVE_BTN_HTML;
+  document.getElementById("cancelBtn").hidden = true;
 }
 
 async function handleSave() {
-  const wordEl    = document.getElementById("inputWord");
+  const wordEl = document.getElementById("inputWord");
   const meaningEl = document.getElementById("inputMeaning");
-  const saveBtn   = document.getElementById("saveBtn");
+  const saveBtn = document.getElementById("saveBtn");
 
-  const word    = wordEl.value.trim();
+  const word = wordEl.value.trim();
   const meaning = meaningEl.value.trim();
 
   if (!word) {
@@ -390,7 +390,7 @@ async function handleSave() {
     return;
   }
 
-  saveBtn.disabled  = true;
+  saveBtn.disabled = true;
   saveBtn.innerHTML = '<div class="spinner"></div> Saving…';
 
   try {
@@ -402,7 +402,7 @@ async function handleSave() {
       showToast(`"${word}" updated!`, "success");
     } else {
       const duplicate = allWords.find(
-        (w) => w.word.toLowerCase() === word.toLowerCase()
+        (w) => w.word.toLowerCase() === word.toLowerCase(),
       );
       if (duplicate) {
         showToast(`"${word}" is already saved.`, "error");
@@ -412,7 +412,7 @@ async function handleSave() {
       await DB.addWord({ word, meaning });
       allWords = await DB.getAllWords();
       renderWords();
-      wordEl.value    = "";
+      wordEl.value = "";
       meaningEl.value = "";
       wordEl.focus();
       showToast(`"${word}" saved successfully!`, "success");
@@ -421,7 +421,7 @@ async function handleSave() {
     console.error("[VocabTracker] Save error:", err);
     showToast("Failed to save. Please try again.", "error");
   } finally {
-    saveBtn.disabled  = false;
+    saveBtn.disabled = false;
     saveBtn.innerHTML = editingId !== null ? UPDATE_BTN_HTML : SAVE_BTN_HTML;
   }
 }
@@ -473,7 +473,9 @@ async function init() {
 
   document.getElementById("saveBtn").addEventListener("click", handleSave);
   document.getElementById("cancelBtn").addEventListener("click", cancelEdit);
-  document.getElementById("searchInput").addEventListener("input", handleSearch);
+  document
+    .getElementById("searchInput")
+    .addEventListener("input", handleSearch);
   document.addEventListener("keydown", handleKeydown);
 }
 

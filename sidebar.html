@@ -27,29 +27,29 @@
         role="form"
         aria-label="Add new word"
       >
-        <div class="field-group">
-          <label class="field-label" for="inputWord">Word</label>
+        <div class="field-float">
           <input
             class="field-input"
             id="inputWord"
             type="text"
-            placeholder="e.g. serendipity"
+            placeholder=" "
             autocomplete="off"
             spellcheck="false"
             maxlength="120"
           />
+          <label class="field-float-label" for="inputWord">Word</label>
         </div>
 
-        <div class="field-group">
-          <label class="field-label" for="inputMeaning">Meaning</label>
+        <div class="field-float">
           <input
             class="field-input"
             id="inputMeaning"
             type="text"
-            placeholder="e.g. a pleasant surprise or happy accident"
+            placeholder=" "
             autocomplete="off"
             maxlength="300"
           />
+          <label class="field-float-label" for="inputMeaning">Meaning</label>
         </div>
 
         <div class="form-actions">
@@ -80,8 +80,13 @@
       </div>
     </section>
 
-    <!-- ── Search ─────────────────────────────────────────────────── -->
-    <section class="search-section" aria-label="Search saved words">
+    <!-- ── Saved Words + Search ───────────────────────────────────── -->
+    <div class="list-header" aria-live="polite" id="listHeader">
+      <span class="list-title">Saved Words</span>
+      <span class="list-meta" id="listMeta"></span>
+    </div>
+
+    <div class="search-section" aria-label="Search saved words">
       <span class="search-icon" aria-hidden="true">
         <svg
           width="14"
@@ -106,12 +111,6 @@
         spellcheck="false"
         aria-label="Search saved words"
       />
-    </section>
-
-    <!-- ── List Header ────────────────────────────────────────────── -->
-    <div class="list-header" aria-live="polite" id="listHeader">
-      <span class="list-title">Saved Words</span>
-      <span class="list-meta" id="listMeta"></span>
     </div>
 
     <!-- ── Words List ─────────────────────────────────────────────── -->

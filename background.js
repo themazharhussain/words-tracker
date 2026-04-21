@@ -21,10 +21,7 @@ chrome.action.onClicked.addListener(async (tab) => {
   try {
     await chrome.scripting.executeScript({
       target: { tabId: tab.id },
-      func: () => {
-        const btn = document.getElementById("vocabtracker-toggle-btn");
-        if (btn) btn.click();
-      },
+      func: () => window.__vocabTrackerToggle?.(),
     });
   } catch (err) {
     console.warn("[VocabTracker] Could not toggle sidebar:", err.message);
