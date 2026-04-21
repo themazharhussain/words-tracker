@@ -2,6 +2,8 @@
 
 A Chrome extension to save and review English vocabulary words while browsing any website.
 
+![VocabTracker Preview](screenshots/preview.png)
+
 ## Features
 
 - **Save words** with their meaning directly from any webpage
@@ -24,7 +26,7 @@ A Chrome extension to save and review English vocabulary words while browsing an
 
 | Action | How |
 |---|---|
-| Open / close sidebar | Click the extension icon in the toolbar, or click the purple tab on the right edge of any page |
+| Open / close sidebar | Click the VocabTracker icon in the Chrome toolbar |
 | Add a word | Fill in Word + Meaning and click **Save Word** (or press `Ctrl+Enter`) |
 | Edit a word | Click the ✏️ pencil button on a card, update the fields, click **Update Word** |
 | Delete a word | Click the 🗑️ trash button on a card |
@@ -45,7 +47,8 @@ new-words/
 │   ├── icon16.png
 │   ├── icon48.png
 │   └── icon128.png
-└── generate-icons.html # Helper page to regenerate icons if needed
+└── screenshots/
+    └── preview.png
 ```
 
 ## Storage
